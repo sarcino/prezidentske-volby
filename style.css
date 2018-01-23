@@ -16,3 +16,9 @@ h1 {
     text-align: center;
 }
 
+#graph {
+    cursor: default;
+    max-width: 960px;
+    
+}
+

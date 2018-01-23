@@ -1,5 +1,5 @@
-window.onload = function () {
 
+window.onload = function () {
 
     var callAPI = function () {
         $.ajax({
@@ -8,6 +8,7 @@ window.onload = function () {
             contentType: "application/xml",
             url: "http://api.jsemsarka.cz",
             success: function (xml) {
+
                 console.log(xml);
                 var allCandidates = xml.getElementsByTagName("KANDIDAT");
 
@@ -19,14 +20,8 @@ window.onload = function () {
                     allNames.push(allCandidates[i].getAttribute("JMENO") + " " + allCandidates[i].getAttribute("PRIJMENI"));
                     values.push(allCandidates[i].getAttribute("HLASY_PROC_1KOLO"));
                 }
-                document.getElementById("results2").innerHTML = allNames;
-                document.getElementById("results3").innerHTML = values;
-
-                // GRAF
-
-              
-                
-// END OF SUCCESS
+                document.getElementById("results").innerHTML = allNames;
+                document.getElementById("results").innerHTML = values;
             },
 
         });
@@ -42,3 +37,5 @@ window.onload = function () {
 
 
 }
+
+

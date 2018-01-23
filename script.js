@@ -13,14 +13,35 @@ window.onload = function () {
 
                 var allNames = [];
                 var values = [];
+                var values2 = [];
+                var allNames2 = [];
 
                 // PROCHÁZÍM VŠECHNY KANDIDÁTY A VYBÍRÁM JMÉNO, PŘÍJMENÍ A PROCENTA HLASŮ
                 for (var i = 0; i < allCandidates.length; i++) {
                     allNames.push(allCandidates[i].getAttribute("JMENO") + " " + allCandidates[i].getAttribute("PRIJMENI"));
                     values.push(allCandidates[i].getAttribute("HLASY_PROC_1KOLO"));
+                    
                 }
-                document.getElementById("results").innerHTML = allNames;
-                document.getElementById("results1").innerHTML = values;
+               // document.getElementById("results").innerHTML = allNames;
+               // document.getElementById("results1").innerHTML = values;
+
+                // GRAPH
+
+                var data = [{
+                    x: allNames,
+                    y: values,
+                    marker: {
+                        color: ['rgba(204,204,204,1)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)', 'rgba(222,45,38,0.8)', 'rgba(204,204,204,1)', 'rgba(222,45,38,0.8)']
+                    },
+                    type: 'bar'
+}];
+
+                var layout = {
+                    title: '',                   
+                    showlegend: false
+                };
+
+                Plotly.newPlot('graph', data, layout, {displayModeBar: false});
 
 
                 // END OF SUCCESS

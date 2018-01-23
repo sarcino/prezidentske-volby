@@ -1,4 +1,3 @@
-
 window.onload = function () {
 
     var callAPI = function () {
@@ -9,7 +8,7 @@ window.onload = function () {
             url: "http://api.jsemsarka.cz",
             success: function (xml) {
 
-                console.log(xml);
+
                 var allCandidates = xml.getElementsByTagName("KANDIDAT");
 
                 var allNames = [];
@@ -21,9 +20,12 @@ window.onload = function () {
                     values.push(allCandidates[i].getAttribute("HLASY_PROC_1KOLO"));
                 }
                 document.getElementById("results").innerHTML = allNames;
-                document.getElementById("results").innerHTML = values;
-            },
+                document.getElementById("results1").innerHTML = values;
 
+
+                // END OF SUCCESS
+            },
+            // END OF AJAX
         });
 
 
@@ -37,5 +39,3 @@ window.onload = function () {
 
 
 }
-
-

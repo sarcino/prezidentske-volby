@@ -5,7 +5,9 @@ window.onload = function () {
             type: "get",
             dataType: "xml",
             contentType: "application/xml",
-            url: "http://api.jsemsarka.cz",
+           // url: "http://api.jsemsarka.cz",
+            
+            url: "http://api.jsemsarka.cz/?offline=1",
             success: function (xml) {
 
 
@@ -20,12 +22,21 @@ window.onload = function () {
                 for (var i = 0; i < allCandidates.length; i++) {
                     allNames.push(allCandidates[i].getAttribute("JMENO") + " " + allCandidates[i].getAttribute("PRIJMENI"));
                     values.push(allCandidates[i].getAttribute("HLASY_PROC_1KOLO"));
-                    
-                }
-               // document.getElementById("results").innerHTML = allNames;
-               // document.getElementById("results1").innerHTML = values;
 
-                // GRAPH
+                    if (allCandidates[i].getAttribute("PORADOVE_CISLO") === 7 || allCandidates[i].getAttribute("PORADOVE_CISLO") === 9) {
+                        allNames2.push(allCandidates[i].getAttribute("JMENO") + " " + allCandidates[i].getAttribute("PRIJMENI"));
+                        values2.push(allCandidates[i].getAttribute("HLASY_PROC_2KOLO"));
+
+                    }
+
+                }
+                // document.getElementById("results").innerHTML = allNames;
+                // document.getElementById("results1").innerHTML = values;
+                
+                 document.getElementById("results2").innerHTML = allNames2;
+                 document.getElementById("results3").innerHTML = values2;
+
+                // GRAPH - 1. KOLO
 
                 var data = [{
                     x: allNames,
@@ -37,11 +48,15 @@ window.onload = function () {
 }];
 
                 var layout = {
-                    title: '',                   
+                    title: '',
                     showlegend: false
                 };
 
-                Plotly.newPlot('graph', data, layout, {displayModeBar: false});
+                Plotly.newPlot('graph', data, layout, {
+                    displayModeBar: false
+                });
+                
+                // GRAPH - 2. KOLO
 
 
                 // END OF SUCCESS

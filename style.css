@@ -14,6 +14,10 @@ main, .wrapper {
     max-width: 960px;
 }
 
+nav {
+    display: flex;
+}
+
 h1 {
     text-align: center;
     font-weight: 600;
@@ -23,12 +27,30 @@ h1 {
 
 h2 {
     font-weight: 600;
-    font-size: 2em;
+    font-size: 1.2em;
 }
 
 #graph {
     cursor: default;
     max-width: 960px;    
+}
+
+#first, #second {
+    padding: 20px;
+    background-color: #ededef;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+#first:hover, #second:hover {
+    background: #ffffff;
+    outline: 1px solid #000000;
+}
+
+#second {
+    margin-left: 20px;
 }
 
 footer {

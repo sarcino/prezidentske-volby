@@ -1,35 +1,35 @@
 window.onload = function () {
-    
+
     // TABS
     //SLIDE DOWN = SHOW
     //SLIDE UP = HIDE
     $('div.first').slideUp();
-    $('#second').click(function() {
+    $('#second').click(function () {
         $('div.first').slideUp();
-		// Zobraz DIV s class .first
-		$('div.second').slideDown();
-        
+        // Zobraz DIV s class .first
+        $('div.second').slideDown();
+
     });
-                       
-    $('#first').click(function() {
-		$('div.second').slideUp();
-		$('div.first').slideDown();
-        
-	});
-    
-    $('h2').click(function() {
+
+    $('#first').click(function () {
+        $('div.second').slideUp();
+        $('div.first').slideDown();
+
+    });
+
+    $('h2').click(function () {
         $('h2').removeClass('current-tab');
         $(this).addClass('current-tab');
     });
-                      
+
 
     var callAPI = function () {
         $.ajax({
             type: "get",
             dataType: "xml",
             contentType: "application/xml",
-           // url: "https://api.jsemsarka.cz",
-            
+            // url: "https://api.jsemsarka.cz",
+
             url: "https://api.jsemsarka.cz/?offline=1",
             success: function (xml) {
 
@@ -55,8 +55,8 @@ window.onload = function () {
                 }
                 // document.getElementById("results").innerHTML = allNames;
                 // document.getElementById("results1").innerHTML = values;
-                 document.getElementById("results2").innerHTML = allNamesTwo;
-                 document.getElementById("results3").innerHTML = valuesTwo;
+                // document.getElementById("results2").innerHTML = allNamesTwo;
+               // document.getElementById("results3").innerHTML = valuesTwo;
 
                 // GRAPH - 1. KOLO
 
@@ -64,7 +64,7 @@ window.onload = function () {
                     x: allNames,
                     y: values,
                     marker: {
-                        color: ['rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)','rgba(17, 69, 126,1)', 'rgba(215, 20, 26,1)', 'rgba(17, 69, 126,1)', 'rgba(215, 20, 26,1)']
+                        color: ['rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(215, 20, 26,1)', 'rgba(17, 69, 126,1)', 'rgba(215, 20, 26,1)']
                     },
                     type: 'bar'
 }];
@@ -77,24 +77,25 @@ window.onload = function () {
                 Plotly.newPlot('graph', data, layout, {
                     displayModeBar: false
                 });
-                
+
                 // GRAPH - 2. KOLO
-                
-                var data2 = [{
-                    x: allNames2,
-                    y: values2,
+
+                var dataTwo = [{
+                    x: allNamesTwo,
+                    y: valuesTwo,
+                    
                     marker: {
-                        color: ['rgba(215, 20, 26,1)', , 'rgba(17, 69, 126,1)']
+                        color: ['rgba(215, 20, 26,1)', 'rgba(17, 69, 126,1)']
                     },
                     type: 'bar'
 }];
 
-                var layout = {
+                var layoutTwo = {
                     title: '',
                     showlegend: false
                 };
 
-                Plotly.newPlot('graph2', data, layout, {
+                Plotly.newPlot('graph-two', dataTwo, layoutTwo, {
                     displayModeBar: false
                 });
 

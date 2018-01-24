@@ -3,7 +3,7 @@ window.onload = function () {
     // TABS
     //SLIDE DOWN = SHOW
     //SLIDE UP = HIDE
-    $('div.first').slideUp();
+    $('div.second').slideUp();
     $('#second').click(function () {
         $('div.first').slideUp();
         // Zobraz DIV s class .first
@@ -82,8 +82,7 @@ window.onload = function () {
 
                 var dataTwo = [{
                     x: allNamesTwo,
-                    y: valuesTwo,
-                    
+                    y: valuesTwo,                    
                     marker: {
                         color: ['rgba(215, 20, 26,1)', 'rgba(17, 69, 126,1)']
                     },

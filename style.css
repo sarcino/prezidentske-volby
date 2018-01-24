@@ -39,8 +39,8 @@ h2 {
     font-size: 1.2em;
 }
 
-.first {
-    width: 960px;
+.first, .second {
+    max-width: 960px;
 }
 
 #graph {
@@ -73,8 +73,13 @@ h2 {
 }
 
 footer a {
-    color: rgba(17, 69, 126, 1);
+    color: #11457e;
     text-decoration: underline;
+    transition: 0.3s linear;
+}
+
+footer a:hover {
+    color: #d7141a;    
 }
 
 footer {

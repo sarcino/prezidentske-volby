@@ -3,7 +3,7 @@ window.onload = function () {
     // TABS
     //SLIDE DOWN = SHOW
     //SLIDE UP = HIDE
-    $('div.second').slideUp();
+    $('div.first').slideUp();
     $('#second').click(function () {
         $('div.first').slideUp();
         // Zobraz DIV s class .first

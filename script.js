@@ -22,22 +22,20 @@ window.onload = function () {
         $(this).addClass('current-tab');
     });
 
-
     var callAPI = function () {
         $.ajax({
             type: "get",
             dataType: "xml",
             contentType: "application/xml",
             // url: "https://api.jsemsarka.cz",
-
             url: "https://api.jsemsarka.cz/?offline=1",
             success: function (xml) {
-
 
                 var allCandidates = xml.getElementsByTagName("KANDIDAT");
 
                 var allNames = [];
                 var values = [];
+                
                 var valuesTwo = [];
                 var allNamesTwo = [];
 
@@ -49,16 +47,15 @@ window.onload = function () {
                     if (allCandidates[i].getAttribute("PORADOVE_CISLO") == 7 || allCandidates[i].getAttribute("PORADOVE_CISLO") == 9) {
                         allNamesTwo.push(allCandidates[i].getAttribute("JMENO") + " " + allCandidates[i].getAttribute("PRIJMENI"));
                         valuesTwo.push(allCandidates[i].getAttribute("HLASY_PROC_2KOLO"));
-
                     }
-
                 }
+
                 // document.getElementById("results").innerHTML = allNames;
                 // document.getElementById("results1").innerHTML = values;
                 // document.getElementById("results2").innerHTML = allNamesTwo;
-               // document.getElementById("results3").innerHTML = valuesTwo;
+                // document.getElementById("results3").innerHTML = valuesTwo;
 
-                // GRAPH - 1. KOLO
+                // GRAF - 1. KOLO
 
                 var data = [{
                     x: allNames,
@@ -67,7 +64,7 @@ window.onload = function () {
                         color: ['rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(17, 69, 126,1)', 'rgba(215, 20, 26,1)', 'rgba(17, 69, 126,1)', 'rgba(215, 20, 26,1)']
                     },
                     type: 'bar'
-}];
+                }];
 
                 var layout = {
                     title: '',
@@ -78,7 +75,7 @@ window.onload = function () {
                     displayModeBar: false
                 });
 
-                // GRAPH - 2. KOLO
+                // GRAF - 2. KOLO
 
                 var dataTwo = [{
                     x: allNamesTwo,
@@ -87,7 +84,7 @@ window.onload = function () {
                         color: ['rgba(215, 20, 26,1)', 'rgba(17, 69, 126,1)']
                     },
                     type: 'bar'
-}];
+                }];
 
                 var layoutTwo = {
                     title: '',

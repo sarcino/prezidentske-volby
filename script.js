@@ -79,6 +79,24 @@ window.onload = function () {
                 });
                 
                 // GRAPH - 2. KOLO
+                
+                var data2 = [{
+                    x: allNames2,
+                    y: values2,
+                    marker: {
+                        color: ['rgba(215, 20, 26,1)', , 'rgba(17, 69, 126,1)']
+                    },
+                    type: 'bar'
+}];
+
+                var layout = {
+                    title: '',
+                    showlegend: false
+                };
+
+                Plotly.newPlot('graph2', data, layout, {
+                    displayModeBar: false
+                });
 
 
                 // END OF SUCCESS

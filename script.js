@@ -27,8 +27,8 @@ window.onload = function () {
             type: "get",
             dataType: "xml",
             contentType: "application/xml",
-            // url: "https://api.jsemsarka.cz",
-            url: "https://api.jsemsarka.cz/?offline=1",
+             url: "https://api.jsemsarka.cz",
+           // url: "https://api.jsemsarka.cz/?offline=1",
             success: function (xml) {
 
                 var allCandidates = xml.getElementsByTagName("KANDIDAT");
@@ -95,18 +95,15 @@ window.onload = function () {
                     displayModeBar: false
                 });
 
-
                 // END OF SUCCESS
             },
             // END OF AJAX
         });
-
-
     }
 
     callAPI();
     // RELOAD EVERY FIVE MINUTES
-    setInterval(callAPI, 300000);
+     setInterval(callAPI, 300000);
 
 
 

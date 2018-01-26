@@ -27,15 +27,15 @@ window.onload = function () {
             type: "get",
             dataType: "xml",
             contentType: "application/xml",
-             url: "https://api.jsemsarka.cz",
-           // url: "https://api.jsemsarka.cz/?offline=1",
+            url: "https://api.jsemsarka.cz",
+            //  url: "https://api.jsemsarka.cz/?offline=1",
             success: function (xml) {
 
                 var allCandidates = xml.getElementsByTagName("KANDIDAT");
 
                 var allNames = [];
                 var values = [];
-                
+
                 var valuesTwo = [];
                 var allNamesTwo = [];
 
@@ -79,7 +79,7 @@ window.onload = function () {
 
                 var dataTwo = [{
                     x: allNamesTwo,
-                    y: valuesTwo,                    
+                    y: valuesTwo,
                     marker: {
                         color: ['rgba(215, 20, 26,1)', 'rgba(17, 69, 126,1)']
                     },
@@ -97,13 +97,22 @@ window.onload = function () {
 
                 // END OF SUCCESS
             },
+
+            error: setTimeout(function () {
+                callAPI()
+            }, 10000)
+
+
+
+
+
             // END OF AJAX
         });
     }
 
     callAPI();
     // RELOAD EVERY FIVE MINUTES
-     setInterval(callAPI, 300000);
+    setInterval(callAPI, 300000);
 
 
 

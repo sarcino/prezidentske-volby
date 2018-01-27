@@ -111,8 +111,8 @@ window.onload = function () {
     }
 
     callAPI();
-    // RELOAD EVERY FIVE MINUTES
-    setInterval(callAPI, 300000);
+    // RELOAD EVERY MINUTE
+    setInterval(callAPI, 60000);
 
 
 

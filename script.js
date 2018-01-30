@@ -112,7 +112,7 @@ window.onload = function () {
 
     callAPI();
     // RELOAD EVERY MINUTE
-    setInterval(callAPI, 60000);
+  //  setInterval(callAPI, 60000);
 
 
 

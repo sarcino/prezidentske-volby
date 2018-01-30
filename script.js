@@ -102,17 +102,13 @@ window.onload = function () {
                 callAPI()
             }, 10000)
 
-
-
-
-
             // END OF AJAX
         });
     }
 
     callAPI();
     // RELOAD EVERY MINUTE
-  //  setInterval(callAPI, 60000);
+    //  setInterval(callAPI, 60000);
 
 
 
